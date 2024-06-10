@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title>Greeting app by om patil</title>
+	<style>
+		*{font-size:50px;font-family:Arial, sans-serif;}
+		body{background-color: #E0115F;}
+		h1{}background-color:black;color:white;width:400px;border-radius:30px;}	</style>
+</head>
+
+<body>
+<center>
+	<h1>Greeting App </h1>
+	<form onsubmit="check()">
+	<input type="text"placeholder="enter your name"id="name"/>
+	</br></br>
+	<input type="submit"/>
+	</form>
+	<h2 id="msg"/>
+
+	<script>
+	function check()
+	{
+		event.preventDefault();
+		let name=document.getElementById("name");
+		let msg=document.getElementById("msg");
+
+		if(name.value=="")
+		{
+			alert("name cannot be blank");
+			msg.innerHTML="";
+			name.focus();
+			return;
+		}
+		
+		if(name.value.trim()=="")
+		{
+		alert("name cannot be blank spaces");
+		msg.innerHTML="";
+		name.focus();
+		return;
+		}
+		if(!name.value.match(/^[A-Za-z ]+$/))
+		{
+		alert("name shud contain only alphabets");
+		msg.innerHTML="";
+		name.focus();
+		return;
+		}
+
+		let d=new Date();
+		let hr=d.getHours();
+		let ans="";
+		if(hr<12)		ans="Good Morning "+name.value;
+		if(hr<16)		ans="Good Afternoon "+name.value;
+		else			ans="Good Evening "+name.value;
+		msg.innerHTML=ans;
+
+	}
+	</script>
+</center>
+</body>
+</html>
